@@ -1,11 +1,30 @@
 import React, { Component } from "react";
 import "./App.css";
 
-function Welcome(params) {
-  return <h1>{params.name}</h1>;
-}
-
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.tick());
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+  con(msg) {
+    console.log(msg);
+  }
+  // con = msg => () => {
+  //   console.log(msg);
+  // };
   render() {
     return (
       <div className="App">
@@ -18,7 +37,8 @@ class App extends Component {
           >
             This is React
           </a>
-          <Welcome name="虾哔哔" />
+          <p>{this.state.date.toLocaleTimeString()}</p>
+          <button onClick={this.con.bind(this, "adadasda")}>点击</button>
         </header>
       </div>
     );
