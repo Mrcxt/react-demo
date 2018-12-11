@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Layout, Menu, Breadcrumb, Icon, DatePicker } from "antd";
-import "antd/dist/antd.css";
+import { Layout, Menu, Breadcrumb, Icon } from "antd";
+import TicTacToe from "./views/TicTacToe/index";
+
 import "./App.css";
 
 const { SubMenu } = Menu;
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 class App extends Component {
   constructor(props) {
     super(props);
@@ -103,9 +104,7 @@ class App extends Component {
                 <Breadcrumb.Item>App</Breadcrumb.Item>
               </Breadcrumb>
               <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
-                <p>Content</p>
-                <p>{this.state.date.toLocaleTimeString()}</p>
-                <DatePicker />
+                <TicTacToe />
               </div>
             </Content>
           </Layout>
